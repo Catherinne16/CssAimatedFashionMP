@@ -1,0 +1,153 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 3;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ec20a8;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: serif
+}
+
+/* Texto del navbar */
+.navbar h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mostrar botón de menú toggle en dispositivos móviles */
+.menu-toggle {
+    display: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #7c6977;
+    color: #fff;
+    width: 180px;
+    padding: 15px;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 49px;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+/* Sidebar abierto */
+.menu-toggle:checked + .container .sidebar {
+    transform: translateX(0);
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+.main-content {
+    flex-grow: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de las Cards */
+.card-container {
+    display: grid;
+    grid-gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Cards */
+.card {
+    background-color: #f1d7ef;
+    border: 1px solid #f7d3ef;
+    padding: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+/* Imágenes en las Cards */
+.card img {
+    margin-bottom: -5px;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+}
+
+/* Título en las Cards */
+.card h3 {
+    margin-bottom: 10px;
+}
+
+/* Botón en las Cards */
+.card button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center; /* Alinear el botón verticalmente en el centro */
+}
+
+.footer {
+    background-color: #ec20a8;
+    color: #fff;
+    text-align: center;
+    padding: -1px;
+    font-family: emoji;
+}
+
+
+/* Media queries para versión web de escritorio */
+@media only screen and (min-width: 576px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .sidebar {
+        position: fixed;
+    }
+
+    .main-container {
+        margin-left: 200px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Media queries para dispositivos móviles pequeños */
+@media only screen and (max-width: 320px) {
+    .card-container {
+        grid-template-columns: repeat(1, 8fr);
+    }
+}
