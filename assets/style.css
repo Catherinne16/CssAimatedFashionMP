@@ -1,5 +1,6 @@
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 3;
     height: 100%;
@@ -17,7 +18,7 @@ body, html {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    font-family: serif
+    font-family: serif;
 }
 
 .navbar h1 {
@@ -59,10 +60,12 @@ body, html {
 }
 
 .main-content {
-    flex-grow: inherit;
+    flex-grow: 1;
     display: flex;
-    justify-content: center;
+    justify-content: initial;
     align-items: center;
+    background: url(./img/logo2.jfif) no-repeat left center;
+    background-size: contain;
 }
 
 .card-container {
@@ -82,16 +85,38 @@ body, html {
     justify-content: space-between;
 }
 
-.card img {
+
+.cardimg {
     margin-bottom: -5px;
     display: flex;
     justify-content: center;
     height: 200px;
     width: 200px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cardimg:hover {
+    transform: scale(1.1);
+}
+
+.card:hover img {
+    transform: scale(1.1);
 }
 
 .card h3 {
     margin-bottom: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .card button {
@@ -102,16 +127,58 @@ body, html {
     border-radius: 5px;
     cursor: pointer;
     align-self: center;
+    animation: pulse 2s infinite; 
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #c21b8a;
+    transition: background-color 0.3s ease;
 }
 
 .footer {
     background-color: #ec20a8;
     color: #fff;
     text-align: center;
-    padding: -1px;
-    font-family: emoji;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    height: 113px;
+    width: 32%;
+}
+
+.footer-text {
+    text-align: inherit;
+}
+
+@media only screen and (max-width: 576px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .footer-text {
+        text-align: center;
+    }
+}
 
 /* Media queries para versión web de escritorio */
 @media only screen and (min-width: 576px) {
@@ -121,10 +188,6 @@ body, html {
 
     .sidebar {
         position: fixed;
-    }
-
-    .main-container {
-        margin-left: 200px;
     }
 
     .card-container {
